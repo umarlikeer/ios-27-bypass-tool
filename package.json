@@ -1,0 +1,53 @@
+{
+  "name": "ios-27-bypass-tool",
+  "version": "1.0.0",
+  "description": "Advanced iOS Management Tool with iOS 27 Futuristic UI",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:secure": "node build-secure.js",
+    "dist:win": "npm run build:secure && electron-builder --win",
+    "dist:mac": "npm run build:secure && electron-builder --mac pkg",
+    "dist:all": "npm run build:secure && electron-builder -mw"
+  },
+  "dependencies": {
+    "bytenode": "^1.5.3"
+  },
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.0",
+    "javascript-obfuscator": "^4.1.0",
+    "fs-extra": "^11.2.0"
+  },
+  "build": {
+    "appId": "com.iostool.app",
+    "productName": "iSuite27",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "main.jsc",
+      "src/index.html",
+      "src/styles.css",
+      "src/renderer.jsc",
+      "src/renderer.js",
+      "node_modules/bytenode/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": [
+        "pkg",
+        "dmg"
+      ],
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.utilities"
+    }
+  }
+}

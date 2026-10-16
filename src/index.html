@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iSuite 27 - NextGen iOS Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="window-bar">
+    <div class="window-title">iSuite 27 Pro // Universal iOS Control Unit</div>
+    <div class="window-controls">
+      <button id="btn-minimize">−</button>
+      <button id="btn-close" class="close-btn">×</button>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <!-- LEFT 30%: iOS 27 Dynamic Phone Visualizer -->
+    <div class="left-panel">
+      <div class="iphone-frame disconnected" id="phone-visualizer">
+        <div class="dynamic-island">
+          <div class="sensor-dot"></div>
+          <div class="camera-dot"></div>
+        </div>
+        <div class="screen-content">
+          <div class="hologram-grid"></div>
+          <div class="status-badge" id="device-status-badge">DISCONNECTED</div>
+          
+          <div class="phone-center-icon">
+            <div class="cable-icon">⚡</div>
+          </div>
+          
+          <div class="device-model-name" id="device-model">iPhone 15 Pro Max</div>
+          <div class="device-subtext" id="device-subtext">Connect via Lightning / USB-C</div>
+        </div>
+        <div class="home-indicator"></div>
+      </div>
+      <button class="toggle-simulate-btn" id="simulate-toggle">🔌 Toggle Plug Simulation</button>
+    </div>
+
+    <!-- RIGHT 70%: Cards & Control Panel -->
+    <div class="right-panel">
+      <div class="cards-grid">
+        <!-- Card 1: Serial Number -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">🔑</span>
+            <span class="card-title">Serial Number</span>
+          </div>
+          <div class="card-value" id="sn-value">F2LXX901Q182</div>
+          <div class="card-status active">Valid Hardware ID</div>
+        </div>
+
+        <!-- Card 2: iCloud Account -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">☁️</span>
+            <span class="card-title">iCloud Status</span>
+          </div>
+          <div class="card-value" id="icloud-value">usr***89@icloud.com</div>
+          <div class="card-status warning">Locked (FMIP ON)</div>
+        </div>
+
+        <!-- Card 3: iOS Version -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">📱</span>
+            <span class="card-title">iOS Version</span>
+          </div>
+          <div class="card-value" id="ios-value">iOS 27.0.3</div>
+          <div class="card-status active">Build 24A521a</div>
+        </div>
+      </div>
+
+      <!-- Mode Selector (Custom Radio Buttons) -->
+      <div class="mode-selection-container">
+        <div class="section-label">SELECT OPERATION MODE</div>
+        <div class="radio-group">
+          <label class="custom-radio">
+            <input type="radio" name="operation_mode" value="bypass" checked>
+            <span class="radio-box">
+              <span class="radio-title">Standard Activation Bypass</span>
+              <span class="radio-desc">Bypasses Hello screen with fake ticket injection</span>
+            </span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="operation_mode" value="deep_purple">
+            <span class="radio-box">
+              <span class="radio-title">Deep Purple Diagnostics Mode</span>
+              <span class="radio-desc">Low-level bootrom exploit & syscfg patch</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Middle Neon Blue START Button -->
+      <div class="action-container">
+        <button class="neon-start-btn" id="start-btn">
+          <span class="btn-glow"></span>
+          <span class="btn-text">START PROCESS</span>
+        </button>
+      </div>
+
+      <!-- Bottom Options Switch / Checkbox -->
+      <div class="bottom-options">
+        <label class="custom-checkbox-container">
+          <input type="checkbox" id="block-ota-chk" checked>
+          <span class="checkmark"></span>
+          <span class="checkbox-label">
+            <strong>Block OTA Updates & Prevent Erase / Reset</strong>
+            <small>Injects system payload to disable software updates & factory reset settings</small>
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer-loader.js"></script>
+</body>
+</html>
